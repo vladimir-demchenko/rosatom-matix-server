@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   class Resource extends Model {
     static associate(models) {
       // define association here
+      Resource.belongsTo(models.IS, { foreignKey: "idIS" });
       Resource.hasMany(models.Role, { foreignKey: 'idResource' });
     }
   }
