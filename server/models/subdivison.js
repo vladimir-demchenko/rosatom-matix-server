@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class TestCLI extends Model {
+  class Subdivision extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,12 +13,16 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  TestCLI.init({
-    id: DataTypes.INTEGER,
+  Subdivision.init({
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
     name: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'TestCLI',
+    modelName: 'Subdivision',
   });
-  return TestCLI;
+  return Subdivision;
 };
