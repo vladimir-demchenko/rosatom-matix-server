@@ -19,13 +19,9 @@ exports.createAccess = async (req, res) => {
 };
 
 exports.getAllAccesses = async (req, res) => {
-    await db.Access.findAll({ 
-        include: [
-            {model: db.User},
-            { model: db.IS},
-            { model: db.Resource},
-            { model: db.Role}
-        ]
+    await db.Access.findAll({
+        // include: { all: true },
+        order: [['id', 'ASC']]
     })
     .then(data => {
         res.send(data);

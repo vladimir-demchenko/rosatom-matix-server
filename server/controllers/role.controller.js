@@ -19,7 +19,9 @@ exports.create = async (req, res) => {
 };
 
 exports.getAll = async (req, res) => {
-    await db.Role.findAll({ include: [{ model: db.Resource }] })
+    await db.Role.findAll(
+        // { include: [{ model: db.Resource }] }
+    )
     .then(data => {
         res.send(data);
     })

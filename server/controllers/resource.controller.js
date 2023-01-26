@@ -19,7 +19,9 @@ exports.create = async (req, res) => {
 };
 
 exports.getAll = async (req, res) => {
-    await db.Resource.findAll({ include: [{ model: db.IS }] })
+    await db.Resource.findAll(
+        // { include: [{ model: db.IS }] }
+        )
     .then(data => {
         res.send(data);
     })

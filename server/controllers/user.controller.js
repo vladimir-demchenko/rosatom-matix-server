@@ -20,11 +20,8 @@ exports.create = async (req, res) => {
 
 exports.getAll = async (req, res) => {
     await db.User.findAll({ 
-        include: [
-            {model: db.Position},
-            { model: db.Subdivision},
-            { model: db.Department}
-        ]
+        // include: { all: true },
+        order: [['id', 'ASC']]
     })
     .then(data => {
         res.send(data);
